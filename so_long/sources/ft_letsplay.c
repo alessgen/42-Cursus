@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_letsplay.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/17 15:52:50 by agenoves          #+#    #+#             */
+/*   Updated: 2022/02/23 20:33:41 by agenoves         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+
+int	ft_in_game_events(int keycode, t_solong *sl)
+{
+	if (keycode == 13)
+	{
+		sl->ally_y -= 1;
+		ft_player_w(sl);
+	}
+	else if (keycode == 1)
+	{
+		sl->ally_y += 1;
+		ft_player_s(sl);
+	}
+	else if (keycode == 0)
+	{
+		sl->ally_x -= 1;
+		ft_player_a(sl);
+	}
+	else if (keycode == 2)
+	{
+		sl->ally_x += 1;
+		ft_player_d(sl);
+	}
+	return (0);
+}
+
+int	ft_check_key(int keycode, t_solong *sl)
+{
+	if (keycode == 53)
+		ft_quit_game(sl);
+	else if (!sl->stopgame)
+	{
+		ft_in_game_events(keycode, sl);
+		ft_print("Moves: %d\n", sl->moves);
+	}
+	return (0);
+}
+
+void	ft_lets_play(t_solong *sl)
+{
+	mlx_hook(sl->window, 2, 1L << 0, ft_check_key, sl);
+	mlx_hook(sl->window, 17, 1L << 17, ft_quit_game, sl);
+}
