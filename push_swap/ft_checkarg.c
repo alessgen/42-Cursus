@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 03:10:02 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/11 14:30:36 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 19:32:23 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,29 @@ int	ft_checkdigit(long result, char *str)
 
 int	ft_checkdouble(t_utils *utils)
 {
-	int	i;
-	int	j;
-	int	count;
-
-	i = 0;
-	count = ft_listsize(utils->stack_a);
+	utils->i = 0;
+	utils->count = ft_listsize(utils->stack_a);
 	utils->array = ft_list_to_array(utils->stack_a);
-	while (i < count - 1)
+	while (utils->i < utils->count - 1)
 	{
-		j = i + 1;
-		while (j < count)
+		utils->j = utils->i + 1;
+		while (utils->j < utils->count)
 		{
-			if (utils->array[i] == utils->array[j])
+			if (utils->array[utils->i] == utils->array[utils->j])
 			{
 				if (utils->array)
 					free(utils->array);
 				return (0);
 			}
-			j++;
+			utils->j++;
 		}
-		i++;
+		utils->i++;
 	}
 	if (utils->array)
+	{
 		free(utils->array);
+		utils->array = NULL;
+	}
 	return (1);
 }
 

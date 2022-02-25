@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:57:24 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/14 12:06:44 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 19:31:22 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_utils
 	char	**a;
 	int		i;
 	int		j;
+	int		count;
 	int		first;
 	int		second;
 	int		rotmoves;

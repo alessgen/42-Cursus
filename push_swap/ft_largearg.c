@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:26:58 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/15 19:03:51 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:19:09 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_splitchunks(t_list **stack_a, t_list **stack_b, t_utils *u)
 		ft_arraysort(array, ft_listsize(*stack_a));
 		u->first = ft_findfirst(*stack_a, array[20]);
 		u->second = ft_findsecond(*stack_a, array[20]);
+		free(array);
 		if (u->first < ft_listsize(*stack_a) / 2)
 			u->rotmoves = u->first;
 		if (u->second > ft_listsize(*stack_a) / 2)
