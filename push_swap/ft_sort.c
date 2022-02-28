@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:07:14 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/10 16:02:22 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:43:43 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,34 @@ void	ft_threenumb(t_list **stack_a)
 	else if ((*stack_a)->data < (*stack_a)->next->data
 		&& (*stack_a)->data > (*stack_a)->next->next->data)
 		ft_revrotate_a(stack_a);
+}
+
+void	ft_fivenumb(t_list **stack_a, t_list **stack_b)
+{
+	int	index;
+	int	j;
+
+	j = 0;
+	while (j < 2)
+	{
+			index = ft_indexing(*stack_a, ft_findmin(stack_a));
+		if (index <= 2)
+		{
+			while (index-- > 0)
+				ft_rotate_a(stack_a);
+		}
+		else
+		{
+			index = ft_listsize(*stack_a) - index;
+			while (index-- > 0)
+				ft_revrotate_a(stack_a);
+		}
+		ft_push_b(stack_a, stack_b);
+		j++;
+	}
+	ft_threenumb(stack_a);
+	ft_push_a(stack_a, stack_b);
+	ft_push_a(stack_a, stack_b);
 }
 
 void	ft_firstcheck(t_list **stack_a, t_list **stack_b)

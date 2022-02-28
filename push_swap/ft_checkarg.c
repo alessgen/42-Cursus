@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 03:10:02 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/25 19:32:23 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:46:51 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,14 @@ int	ft_checkdouble(t_utils *utils)
 		{
 			if (utils->array[utils->i] == utils->array[utils->j])
 			{
-				if (utils->array)
-					free(utils->array);
+				ft_free_and_null(&utils->array);
 				return (0);
 			}
 			utils->j++;
 		}
 		utils->i++;
 	}
-	if (utils->array)
-	{
-		free(utils->array);
-		utils->array = NULL;
-	}
+	ft_free_and_null(&utils->array);
 	return (1);
 }
 
@@ -74,6 +69,8 @@ void	ft_checkargs(t_utils *utils)
 		ft_twonumb(&utils->stack_a);
 	else if (ft_listsize((*utils).stack_a) == 3)
 		ft_threenumb(&utils->stack_a);
+	else if (ft_listsize((*utils).stack_a) == 5)
+		ft_fivenumb(&utils->stack_a, &utils->stack_b);
 	else if (ft_listsize((*utils).stack_a) > 3
 		&& (ft_listsize((*utils).stack_a) < 101))
 	{

@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:57:24 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/25 19:31:22 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:42:34 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,9 @@ void		ft_twonumb(t_list **stack_a);
 void		ft_firstcheck(t_list **stack_a, t_list **stack_b);
 void		ft_checkargs(t_utils *utils);
 void		ft_splitchunks(t_list **stack_a, t_list **stack_b, t_utils *u);
+void		ft_fivenumb(t_list **stack_a, t_list **stack_b);
 void		ft_optimizer(t_list **stack_a, t_list **stack_b, t_utils *u);
-void		ft_radix_sort(t_list **stack_a, t_list **stack_b);
+void		ft_free_and_null(int **content);
 long		ft_atoi(const char *str);
 int			ft_checkdouble(t_utils *utils);
 int			ft_checkdigit(long result, char *str);

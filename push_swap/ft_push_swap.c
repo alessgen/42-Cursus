@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:33:11 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/22 15:09:06 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:23:10 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,16 @@ int	main(int argc, char **argv)
 	if (!ft_fill_the_stack(argc, argv, &utils))
 	{
 		write (1, "Error\n", 6);
+		ft_clearleak(&utils);
 		return (0);
 	}
 	if (!ft_checkdouble(&utils))
 	{
 		write (1, "Error\n", 6);
+		ft_clearleak(&utils);
 		return (0);
 	}
-	if (ft_isordered(utils.stack_a))
-		return (0);
-	else
+	if (!ft_isordered(utils.stack_a))
 		ft_checkargs(&utils);
 	ft_clearleak(&utils);
 }

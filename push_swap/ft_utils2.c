@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:14:46 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/11 12:25:22 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/28 12:17:04 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,13 @@ int	ft_findsecond(t_list *stack_a, int position)
 		stack_a = stack_a->next;
 	}
 	return (second);
+}
+
+void	ft_free_and_null(int **content)
+{
+	if (*content)
+	{
+		free(*content);
+		*content = NULL;
+	}
 }
