@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:34:11 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/25 17:56:48 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:37:57 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_solong
 	int		enemy_x;
 	int		enemy_y;
 	int		animation;
+	int		loopanim;
 	int		map_wall;
 	int		map_exit;
 	int		map_coll;

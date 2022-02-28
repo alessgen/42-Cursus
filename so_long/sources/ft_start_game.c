@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:19:09 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/23 17:41:44 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:44:26 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_gamebegin(t_solong *sl)
 	sl->mlx = mlx_init();
 	ft_window_size(sl);
 	sl->window = mlx_new_window(sl->mlx, sl->map_w, sl->map_h, "Terraria");
-	ft_draw_all(sl);
 	sl->moves = 0;
 	sl->stopgame = 0;
+	ft_draw_all(sl);
 }

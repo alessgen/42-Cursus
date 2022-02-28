@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:38:23 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/25 17:38:34 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:47:06 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	ft_player_w(t_solong *sl)
 		sl->stopgame = 1;
 		ft_win_game(sl);
 	}	
-	else if (sl->map[sl->ally_y][sl->ally_x] == 'N')
-		ft_lose_game(sl);
 	else if (sl->map[sl->ally_y][sl->ally_x] == '1' \
 		|| sl->map[sl->ally_y][sl->ally_x] == 'E')
 		sl->ally_y += 1;
+	else if (sl->map[sl->ally_y][sl->ally_x] == 'N')
+		ft_lose_game(sl);
 	else
 	{
 		mlx_clear_window(sl->mlx, sl->window);
@@ -68,11 +68,11 @@ void	ft_player_a(t_solong *sl)
 		sl->stopgame = 1;
 		ft_win_game(sl);
 	}
-	else if (sl->map[sl->ally_y][sl->ally_x] == 'N')
-		ft_lose_game(sl);
 	else if (sl->map[sl->ally_y][sl->ally_x] == '1' \
 		|| sl->map[sl->ally_y][sl->ally_x] == 'E')
 		sl->ally_x += 1;
+	else if (sl->map[sl->ally_y][sl->ally_x] == 'N')
+		ft_lose_game(sl);
 	else
 	{
 		mlx_clear_window(sl->mlx, sl->window);
@@ -96,11 +96,11 @@ void	ft_player_s(t_solong *sl)
 		sl->stopgame = 1;
 		ft_win_game(sl);
 	}
-	else if (sl->map[sl->ally_y][sl->ally_x] == 'N')
-		ft_lose_game(sl);
 	else if (sl->map[sl->ally_y][sl->ally_x] == '1' \
 		|| sl->map[sl->ally_y][sl->ally_x] == 'E')
 		sl->ally_y -= 1;
+	else if (sl->map[sl->ally_y][sl->ally_x] == 'N')
+		ft_lose_game(sl);
 	else
 	{
 		mlx_clear_window(sl->mlx, sl->window);
@@ -124,11 +124,11 @@ void	ft_player_d(t_solong *sl)
 		sl->stopgame = 1;
 		ft_win_game(sl);
 	}
-	else if (sl->map[sl->ally_y][sl->ally_x] == 'N')
-		ft_lose_game(sl);
 	else if (sl->map[sl->ally_y][sl->ally_x] == '1' \
 		|| sl->map[sl->ally_y][sl->ally_x] == 'E')
 		sl->ally_x -= 1;
+	else if (sl->map[sl->ally_y][sl->ally_x] == 'N')
+		ft_lose_game(sl);
 	else
 	{
 		mlx_clear_window(sl->mlx, sl->window);

@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:51:06 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/24 16:02:03 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:58:14 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,12 @@ int	ft_quit_game(t_solong *sl)
 	mlx_destroy_image(sl->mlx, sl->draw_coll);
 	mlx_destroy_image(sl->mlx, sl->draw_exit);
 	mlx_destroy_image(sl->mlx, sl->draw_wall);
+	mlx_destroy_image(sl->mlx, sl->draw_win);
+	mlx_destroy_image(sl->mlx, sl->draw_lose);
+	mlx_destroy_image(sl->mlx, sl->draw_enemy);
 	mlx_destroy_window(sl->mlx, sl->window);
 	free(sl->mlx);
 	exit(0);
 	return (0);
 }
+		

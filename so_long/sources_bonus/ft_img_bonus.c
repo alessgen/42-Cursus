@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:04:12 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/25 17:37:45 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:49:26 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 int	ft_change_enemy_img(t_solong *sl)
 {
+	if (sl->loopanim < 1000)
+	{
+		sl->loopanim++;
+		return (0);
+	}
+	sl->loopanim = 0;
 	mlx_destroy_image(sl->mlx, sl->draw_enemy);
 	if (sl->animation == 1)
 		sl->draw_enemy = mlx_xpm_file_to_image

@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:52:50 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/25 17:26:08 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/25 18:44:11 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	ft_lets_play(t_solong *sl)
 {
 	mlx_hook(sl->window, 2, 1L << 0, ft_check_key, sl);
 	mlx_hook(sl->window, 17, 1L << 17, ft_quit_game, sl);
+	mlx_hook(sl->window, 9, 1L << 21, ft_map_updt, sl);
 	mlx_loop_hook(sl->mlx, ft_change_enemy_img, sl);
 }
