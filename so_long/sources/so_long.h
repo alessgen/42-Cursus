@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:34:11 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/24 17:13:55 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/01 14:25:55 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@
 # include "../utils/get_next_line.h"
 # include "../minilibx/mlx.h"
 
-/* IMAGES STRUCT */
-typedef struct s_image
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_image;
 /* SO_LONG STRUCT */
 typedef struct s_solong
 {

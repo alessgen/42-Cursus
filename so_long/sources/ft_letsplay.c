@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:52:50 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/25 18:45:00 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:44:43 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_in_game_events(int keycode, t_solong *sl)
 
 int	ft_check_key(int keycode, t_solong *sl)
 {
-	if (keycode == 53)
+	if (keycode == 53 || keycode == 12)
 		ft_quit_game(sl);
 	else if (!sl->stopgame)
 	{

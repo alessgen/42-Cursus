@@ -6,7 +6,7 @@
 #    By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 17:47:10 by agenoves          #+#    #+#              #
-#    Updated: 2022/02/25 17:43:09 by agenoves         ###   ########.fr        #
+#    Updated: 2022/03/01 14:45:19 by agenoves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,8 +71,10 @@ OBJECTS_BONUS = $(BONUS_FILES:.c=.o)
 				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all:			$(NAME)
+				@mv ${MINILIBX} ${MINILIBX_PATH}/..
 
-bonus:			$(NAME_BONUS)
+bonus:			$(NAME_BONUS) 
+				@mv ${MINILIBX} ${MINILIBX_PATH}/..
 
 $(NAME):		$(MINILIBX) $(OBJECTS) $(HEADER) 
 				$(CC) $(CFLAGS) $(OBJECTS) $(MINILIBX) $(MLXFLAGS) -o $(NAME)
@@ -86,9 +88,10 @@ $(MINILIBX):
 clean:
 				$(MAKE) -C $(MINILIBX_PATH) clean
 				$(RM) $(OBJECTS) $(OBJECTS_BONUS)
-
+				$(RM) 
+				
 fclean:			clean
-				$(RM) $(NAME) $(NAME_BONUS)
+				$(RM) $(NAME) $(NAME_BONUS) ./libmlx.dylib
 
 re:				fclean all
 

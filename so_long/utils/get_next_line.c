@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 22:26:50 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/24 17:56:06 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/01 14:28:52 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,27 +130,3 @@ char	*get_next_line(int fd)
 	str = prepnext(str);
 	return (line);
 }
-
-/* #include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-
-int	main()
-{
-	int	i = 2;
-	int	fd = open("test", O_RDONLY);
-	char	*test;
-
-	if (fd < 0)
-		return (0);
-	while (i != 0)
-	{
-		test = get_next_line(fd);
-		if (test)
-			printf("%s\n", test);
-		else
-			printf("test doesnt exist\n");
-		i--;
-	}
-	close(fd);
-} */

@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:04:12 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/25 18:49:26 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:00:00 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,28 @@
 
 int	ft_change_enemy_img(t_solong *sl)
 {
-	if (sl->loopanim < 1000)
-	{
-		sl->loopanim++;
+	if (sl->stopgame)
 		return (0);
-	}
+	if (sl->loopanim++ < 1000)
+		return (0);
 	sl->loopanim = 0;
-	mlx_destroy_image(sl->mlx, sl->draw_enemy);
-	if (sl->animation == 1)
+	if (sl->animate == 1)
 		sl->draw_enemy = mlx_xpm_file_to_image
 			(sl->mlx, "./Images/Enemy1.xpm", &sl->img_w, &sl->img_h);
-	else if (sl->animation == 2)
+	else if (sl->animate == 2)
 		sl->draw_enemy = mlx_xpm_file_to_image
 			(sl->mlx, "./Images/Enemy2.xpm", &sl->img_w, &sl->img_h);
-	else if (sl->animation == 3)
+	else if (sl->animate == 3)
 		sl->draw_enemy = mlx_xpm_file_to_image
 			(sl->mlx, "./Images/Enemy3.xpm", &sl->img_w, &sl->img_h);
-	else if (sl->animation == 4)
+	else if (sl->animate == 4)
 	{
 		sl->draw_enemy = mlx_xpm_file_to_image
 			(sl->mlx, "./Images/Enemy4.xpm", &sl->img_w, &sl->img_h);
-		sl->animation = 0;
+		sl->animate = 0;
 	}
 	ft_map_updt(sl);
-	sl->animation++;
+	sl->animate++;
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:38:23 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/23 20:39:31 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/01 12:57:20 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,7 @@
 void	ft_change_ally_img(int key, t_solong *sl)
 {
 	mlx_destroy_image(sl->mlx, sl->draw_ally);
-	if (key == 13)
-		sl->draw_ally = mlx_xpm_file_to_image(sl->mlx, "./Images/ally.xpm",
-				&sl->img_w, &sl->img_h);
-	else if (key == 1)
-		sl->draw_ally = mlx_xpm_file_to_image(sl->mlx, "./Images/allyupd.xpm",
-				&sl->img_w, &sl->img_h);
-	else if (key == 0)
+	if (key == 0)
 		sl->draw_ally = mlx_xpm_file_to_image(sl->mlx, "./Images/allyupd.xpm",
 				&sl->img_w, &sl->img_h);
 	else if (key == 2)
@@ -31,7 +25,6 @@ void	ft_change_ally_img(int key, t_solong *sl)
 
 void	ft_player_w(t_solong *sl)
 {
-	ft_change_ally_img(13, sl);
 	if (sl->map[sl->ally_y][sl->ally_x] == 'E' && sl->map_coll == 0)
 	{
 		mlx_clear_window(sl->mlx, sl->window);
@@ -45,7 +38,6 @@ void	ft_player_w(t_solong *sl)
 		sl->ally_y += 1;
 	else
 	{
-		mlx_clear_window(sl->mlx, sl->window);
 		if (sl->map[sl->ally_y][sl->ally_x] == 'C')
 			sl->map_coll = sl->map_coll - 1;
 		sl->map[sl->ally_y][sl->ally_x] = 'P';
@@ -71,7 +63,6 @@ void	ft_player_a(t_solong *sl)
 		sl->ally_x += 1;
 	else
 	{
-		mlx_clear_window(sl->mlx, sl->window);
 		if (sl->map[sl->ally_y][sl->ally_x] == 'C')
 			sl->map_coll -= 1;
 		sl->map[sl->ally_y][sl->ally_x] = 'P';
@@ -83,7 +74,6 @@ void	ft_player_a(t_solong *sl)
 
 void	ft_player_s(t_solong *sl)
 {
-	ft_change_ally_img(1, sl);
 	if (sl->map[sl->ally_y][sl->ally_x] == 'E' && sl->map_coll == 0)
 	{
 		mlx_clear_window(sl->mlx, sl->window);
@@ -97,7 +87,6 @@ void	ft_player_s(t_solong *sl)
 		sl->ally_y -= 1;
 	else
 	{
-		mlx_clear_window(sl->mlx, sl->window);
 		if (sl->map[sl->ally_y][sl->ally_x] == 'C')
 			sl->map_coll = sl->map_coll - 1;
 		sl->map[sl->ally_y][sl->ally_x] = 'P';
@@ -123,7 +112,6 @@ void	ft_player_d(t_solong *sl)
 		sl->ally_x -= 1;
 	else
 	{
-		mlx_clear_window(sl->mlx, sl->window);
 		if (sl->map[sl->ally_y][sl->ally_x] == 'C')
 			sl->map_coll -= 1;
 		sl->map[sl->ally_y][sl->ally_x] = 'P';
