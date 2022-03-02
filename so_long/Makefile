@@ -6,7 +6,7 @@
 #    By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 17:47:10 by agenoves          #+#    #+#              #
-#    Updated: 2022/03/01 14:45:19 by agenoves         ###   ########.fr        #
+#    Updated: 2022/03/02 17:25:51 by agenoves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ SOURCES_FILES = sources/ft_draw.c \
 
 SOURCES_BONUS = sources_bonus/ft_clear_game_bonus.c \
 				sources_bonus/ft_draw_bonus.c \
-				sources_bonus/ft_moves_bonus.c \
 				sources_bonus/ft_img_bonus.c \
 				sources_bonus/ft_letsplay_bonus.c \
 				sources_bonus/ft_map_check_bonus.c \
@@ -70,11 +69,9 @@ OBJECTS_BONUS = $(BONUS_FILES:.c=.o)
 .c.o:
 				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-all:			$(NAME)
-				@mv ${MINILIBX} ${MINILIBX_PATH}/..
+all:			move_lib $(NAME)
 
-bonus:			$(NAME_BONUS) 
-				@mv ${MINILIBX} ${MINILIBX_PATH}/..
+bonus:			move_lib $(NAME_BONUS)
 
 $(NAME):		$(MINILIBX) $(OBJECTS) $(HEADER) 
 				$(CC) $(CFLAGS) $(OBJECTS) $(MINILIBX) $(MLXFLAGS) -o $(NAME)
@@ -84,6 +81,9 @@ $(NAME_BONUS):  $(MINILIBX) $(OBJECTS_BONUS) $(HEADER_BONUS)
 
 $(MINILIBX):
 				$(MAKE) -C $(MINILIBX_PATH)
+
+move_lib:		
+				make -C ${MINILIBX_PATH} && cp ${MINILIBX} ${MINILIBX_PATH}/..
 
 clean:
 				$(MAKE) -C $(MINILIBX_PATH) clean

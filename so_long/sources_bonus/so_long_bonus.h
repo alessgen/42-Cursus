@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:34:11 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/01 18:52:30 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:26:09 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ typedef struct s_solong
 	int		enemy_x;
 	int		enemy_y;
 	int		loopanim;
+	int		loopcoll;
 	int		animate;
+	int		collanim;
 	int		map_wall;
 	int		map_exit;
 	int		map_coll;
@@ -59,26 +61,26 @@ int		ft_strchr(const char *s, int c);
 int		ft_print(char *string, ...);
 char	*ft_itoa(int n);
 /* MAP CHECK */
-int		ft_check_shape(char **map);
-int		ft_check_wall(char **map);
+char	**ft_mapread(char *pattern);
 int		ft_check_exit(t_solong *sl);
 int		ft_check_coll(t_solong *sl);
-int		ft_check_pos(t_solong *sl);
 int		ft_mapchecker(t_solong *sl);
+int		ft_check_shape(char **map);
+int		ft_check_pos(t_solong *sl);
+int		ft_check_wall(char **map);
 /* DRAW MAPS AND DRAW OBJECT */
-char	**ft_mapread(char *pattern);
-void	ft_gamebegin(t_solong *sl);
+void	ft_imgtowin(t_solong *sl, void *image, int x, int y);
+void	ft_allyimg(t_solong *sl, void *img, int x, int y);
+void	ft_change_ally_img(int key, t_solong *sl);
+void	ft_exitimg(t_solong *sl, int x, int y);
 void	ft_window_size(t_solong *sl);
+void	ft_gamebegin(t_solong *sl);
 void	ft_draw_bckg(t_solong *sl);
 void	ft_draw_wall(t_solong *sl);
 void	ft_draw_ally(t_solong *sl);
 void	ft_draw_coll(t_solong *sl);
 void	ft_draw_exit(t_solong *sl);
 void	ft_draw_init(t_solong *sl);
-void	ft_change_ally_img(int key, t_solong *sl);
-void	ft_allyimg(t_solong *sl, void *img, int x, int y);
-void	ft_exitimg(t_solong *sl, int x, int y);
-void	ft_imgtowin(t_solong *sl, void *image, int x, int y);
 int		ft_map_updt(t_solong *sl);
 /* PLAYER ACTIONS */
 void	ft_player_w(t_solong *sl);
@@ -86,17 +88,17 @@ void	ft_player_a(t_solong *sl);
 void	ft_player_s(t_solong *sl);
 void	ft_player_d(t_solong *sl);
 /* GAMEPLAY */
-void	ft_lets_play(t_solong *sl);
 int		ft_in_game_events(int keycode, t_solong *sl);
-void	ft_win_game(t_solong *sl);
+void	ft_lets_play(t_solong *sl);
 void	ft_lose_game(t_solong *sl);
+void	ft_win_game(t_solong *sl);
 /* QUIT / ERROR HANDLING */
-void	ft_clean_map(char **map);
 int		ft_quit_game(t_solong *sl);
+void	ft_clean_map(char **map);
 /* BONUS */
+void	ft_enemyimg(t_solong *sl, void *img, int x, int y);
 int		ft_change_enemy_img(t_solong *sl);
 void	ft_draw_enemy(t_solong *sl);
 void	ft_draw_moves(t_solong *sl);
-void	ft_enemyimg(t_solong *sl, void *img, int x, int y);
 
 #endif

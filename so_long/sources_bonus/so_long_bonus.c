@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:42:39 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/24 16:02:19 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:56:49 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ int	main(int argc, char **argv)
 		else
 		{
 			if (sl.map)
-				free(sl.map);
+				ft_clean_map(sl.map);
 			ft_print("%s", "Error\nLa mappa non è Valida");
 			exit (1);
 		}
 	}
 	else
 	{
-		ft_print("%s", "Error\nOggi niente sberle :P");
+		ft_print("%s", "Error\nInvalid Argument, niente sberle :P");
 		exit(1);
 	}
 	return (0);

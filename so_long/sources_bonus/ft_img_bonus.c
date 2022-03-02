@@ -6,11 +6,21 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:04:12 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/01 19:00:00 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:25:56 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	ft_draw_moves(t_solong *sl)
+{
+	char	*str;
+
+	str = ft_itoa(sl->moves);
+	mlx_string_put(sl->mlx, sl->window, 25, 20, 0x00FFFFFF, "Moves: ");
+	mlx_string_put(sl->mlx, sl->window, 85, 20, 0x00FFFFFF, str);
+	free(str);
+}
 
 int	ft_change_enemy_img(t_solong *sl)
 {
