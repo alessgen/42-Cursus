@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:51:06 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/02 17:28:10 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:04:59 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ int	ft_quit_game(t_solong *sl)
 	exit(0);
 	return (0);
 }
-		

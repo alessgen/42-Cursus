@@ -11,3 +11,5 @@ Get_next_line - [![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/
 FT_Printf - [![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/project/agenoves/ft_printf)](https://github.com/JaeSeoKim/badge42)
 
 Push_swap - [![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/project/agenoves/push_swap)](https://github.com/JaeSeoKim/badge42)
+
+So_Long - [![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/project/agenoves/so_long)](https://github.com/JaeSeoKim/badge42)

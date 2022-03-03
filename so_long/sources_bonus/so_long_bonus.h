@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 16:34:11 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/02 17:26:09 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/03 14:53:51 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		ft_mapchecker(t_solong *sl);
 int		ft_check_shape(char **map);
 int		ft_check_pos(t_solong *sl);
 int		ft_check_wall(char **map);
+int		ft_check_char(char **map);
 /* DRAW MAPS AND DRAW OBJECT */
 void	ft_imgtowin(t_solong *sl, void *image, int x, int y);
 void	ft_allyimg(t_solong *sl, void *img, int x, int y);

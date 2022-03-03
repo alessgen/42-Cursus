@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:19:09 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/02 17:17:07 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:05:05 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,3 @@ void	ft_gamebegin(t_solong *sl)
 	sl->animate = 1;
 	ft_draw_all(sl);
 }
-	

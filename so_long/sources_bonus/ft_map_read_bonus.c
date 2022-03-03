@@ -6,11 +6,35 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:53:38 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/24 16:02:11 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/03 14:52:49 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+int	ft_check_char(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	if (!map)
+		return (0);
+	while (map[i] != '\0')
+	{
+		j = 0;
+		while (map[i][j] != '\0')
+		{
+			if (map[i][j] != '0' && map[i][j] != '1' && \
+				map[i][j] != 'P' && map[i][j] != 'E' && \
+				map[i][j] != 'C' && map[i][j] != 'N')
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 char	**ft_mapread(char *pattern)
 {
@@ -44,7 +68,8 @@ char	**ft_mapread(char *pattern)
 int	ft_mapchecker(t_solong *sl)
 {
 	if (ft_check_coll(sl) && ft_check_exit(sl) && ft_check_shape(sl->map) \
-		&& ft_check_pos(sl) && ft_check_wall(sl->map))
+		&& ft_check_pos(sl) && ft_check_wall(sl->map) \
+		&& ft_check_char(sl->map))
 		return (1);
 	return (0);
 }
