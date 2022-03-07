@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:22:36 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/04 16:42:49 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:41:08 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <string.h>
 
-// This function takes a single argument, an array of two integers (filedes).
+// Questa funzione prende un singolo argomento, un array di due interi fd.
 // filedes[0] is used for reading from the pipe, and filedes[1] is used
 // for writing to the pipe.
 // The process which wants to read from the pipe should close filedes[1],
@@ -33,7 +33,7 @@ int	main(void)
 	message = "Hello, Worldddddd!";
 	pipe(filedes);
 	write (filedes[1], message, strlen(message));
-	n = read(filedes[0], buffer, 200);
+	n = read(filedes[0], buffer, 4);
 	if (n >= 0)
 	{
 		buffer[n] = 0;

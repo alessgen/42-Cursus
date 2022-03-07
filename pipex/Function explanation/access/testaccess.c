@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:44:31 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/04 11:55:15 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/07 11:18:43 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	int		result;
 	char	*path;
 
-	path = "./ciao.txt"; 		 // Path del file da controllare.
+	path = "./cia.txt"; 		 // Path del file da controllare.
 	result = access(path, W_OK); // Viene verificata l'esistenza di pathname
 								 //	ed il permesso in scrittura del file 
 	if (result == 0)
