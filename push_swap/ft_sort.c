@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:07:14 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/28 12:43:43 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/03 19:21:05 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_fivenumb(t_list **stack_a, t_list **stack_b)
 	j = 0;
 	while (j < 2)
 	{
-			index = ft_indexing(*stack_a, ft_findmin(stack_a));
+		index = ft_indexing(*stack_a, ft_findmin(stack_a));
 		if (index <= 2)
 		{
 			while (index-- > 0)
