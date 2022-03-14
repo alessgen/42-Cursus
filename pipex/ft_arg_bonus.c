@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checkarg.c                                      :+:      :+:    :+:   */
+/*   ft_arg_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:47:23 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/10 12:47:34 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:57:30 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
+/* Questa funzione controlla se, qualora venissero passati piu di 5 argomenti,
+il primo argomento (argv[1]) é "here_doc". */
 int	ft_check_bonus(char *argv)
 {
 	int	i;

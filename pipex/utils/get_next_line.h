@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_bonus.h                                      :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 12:51:46 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/14 18:28:39 by agenoves         ###   ########.fr       */
+/*   Created: 2022/01/19 12:28:10 by agenoves          #+#    #+#             */
+/*   Updated: 2022/02/24 17:50:18 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_BONUS_H
-# define PIPEX_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+
+# endif
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include "pipex.h"
-# include "utils/get_next_line.h"
 
-/* Utils and Check */
-int		ft_check_bonus(char *argv);
-/* Execution */
-void	ft_here_doc(char *limiter, int *fd);
+size_t	ft_strlen(const	char *str);
+int		numline(char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_next_line(int fd);
+char	*readresult(int fd, char *buffer, char *temp, char *str);
+char	*printbefore(char *str);
+char	*prepnext(char *str);
 
 #endif
