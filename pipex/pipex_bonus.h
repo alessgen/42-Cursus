@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:51:46 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/14 18:28:39 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/23 14:38:50 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 /* Utils and Check */
 int		ft_check_bonus(char *argv);
 /* Execution */
-void	ft_here_doc(char *limiter, int *fd);
+void	ft_here_doc(char *limiter);
+void	ft_child_process(char *argv, char **envp);
 
 #endif

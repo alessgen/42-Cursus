@@ -6,11 +6,11 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 18:37:54 by agenoves          #+#    #+#             */
-/*   Updated: 2022/02/24 17:56:01 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:25:42 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../sources/so_long.h"
+#include "../pipex.h"
 
 int	charsep(char c, char del)
 {

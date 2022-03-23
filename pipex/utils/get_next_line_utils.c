@@ -6,11 +6,11 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 12:30:52 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/01 14:00:16 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:25:47 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../sources/so_long.h"
+#include "../pipex.h"
 
 size_t	ft_strlen(const char *s)
 {
