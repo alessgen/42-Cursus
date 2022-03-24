@@ -6,11 +6,58 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:42:43 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/23 14:42:28 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/24 11:52:31 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
+
+/* Get next line */
+int	ft_get_next_line(char **line)
+{
+	char	*buffer;
+	int		i;
+	int		r;
+	char	c;
+
+	i = 0;
+	r = 0;
+	buffer = (char *)malloc(10000);
+	if (!buffer)
+		return (-1);
+	r = read(0, &c, 1);
+	while (r && c != '\n' && c != '\0')
+	{
+		if (c != '\n' && c != '\0')
+			buffer[i] = c;
+		i++;
+		r = read(0, &c, 1);
+	}
+	buffer[i] = '\n';
+	buffer[++i] = '\0';
+	*line = buffer;
+	free(buffer);
+	return (r);
+}
+
+/* Questa funzione controlla se, qualora venissero passati piu di 5 argomenti,
+il primo argomento (argv[1]) é "here_doc". */
+int	ft_check_bonus(char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (argv == NULL)
+		return (0);
+	while (argv[i])
+		i++;
+	i -= 1;
+	if (argv[i] == 'c' && argv[i - 1] == 'o' && argv[i - 2] == 'd' \
+		&& argv[i - 3] == '_' && argv[i - 4] == 'e' && argv[i - 5] == 'r' \
+		&& argv[i - 6] == 'e' && argv[i - 7] == 'h')
+		return (1);
+	return (0);
+}
 
 /* Processo figlio che esegue un pipe e un fork, inserisce l'output in un pipe,
 e chiude con una funzione di esecuzione */
@@ -53,9 +100,8 @@ void	ft_here_doc(char *limiter)
 	if (r == 0)
 	{
 		close(fd[0]);
-		while (get_next_line(0))
+		while (ft_get_next_line(&line))
 		{
-			line = get_next_line(0);
 			if (ft_strncmp(limiter, line, ft_strlen(limiter)) == 0)
 				exit(0);
 			write(fd[1], line, ft_strlen(line));

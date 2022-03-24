@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_bonus.h                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 12:51:46 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/24 12:07:30 by agenoves         ###   ########.fr       */
+/*   Created: 2022/03/24 11:53:04 by agenoves          #+#    #+#             */
+/*   Updated: 2022/03/24 11:53:25 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_BONUS_H
-# define PIPEX_BONUS_H
+#include "../pipex.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include "pipex.h"
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-/* Utils and Check */
-int		ft_check_bonus(char *argv);
-int		get_next_line(char **line);
-/* Execution */
-void	ft_here_doc(char *limiter);
-void	ft_child_process(char *argv, char **envp);
-
-#endif
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
