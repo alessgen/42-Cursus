@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:48:27 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/30 18:29:52 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/30 19:49:05 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,19 @@
    hanno mangiato almeno tot volte la simulazione si ferma. Se non specificato
    la simulazione si ferma quando filosofo muore. */
 
-/* Bozza */
-/*	Probabilmente per poter lavorare meglio é opportuno lavorare con le liste
-	parlando anche con altri ragazzi siamo giunti a questa conclusione */
 void	ft_define(int argc, char **argv, t_ph *ph)
 {
-	ph->status = 1;
 	ph->num_philo = ft_atoi(argv[1]);
 	ph->to_die = ft_atoi(argv[2]);
 	ph->to_eat = ft_atoi(argv[3]);
 	ph->to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		ph->n_toeat = ft_atoi(argv[5]);
-	else
-		ph->n_toeat = 0;
+	ph->is_dead = 0;
 }
 
 void	*ft_routine(void *arg)
 {
-	t_list	*list;
-
 	printf("Thread Initialized:\n");
 	return (0);
 }

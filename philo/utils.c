@@ -6,11 +6,21 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:34:51 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/30 18:16:35 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/30 19:24:09 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+long long	ft_get_time(void)
+{
+	struct timeval	tv;
+	long long		time_in_ms;
+
+	gettimeofday(&tv, NULL);
+	time_in_ms = (tv.tv_sec) * 1000 + (tv.tv_sec) / 1000;
+	return (time_in_ms);
+}
 
 int	ft_check_args(int argc, char **argv)
 {
