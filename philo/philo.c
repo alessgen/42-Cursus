@@ -6,7 +6,7 @@
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:48:27 by agenoves          #+#    #+#             */
-/*   Updated: 2022/03/28 17:14:42 by agenoves         ###   ########.fr       */
+/*   Updated: 2022/03/30 18:29:52 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,30 +48,52 @@
    la simulazione si ferma quando filosofo muore. */
 
 /* Bozza */
-void	*ft_create()
+/*	Probabilmente per poter lavorare meglio é opportuno lavorare con le liste
+	parlando anche con altri ragazzi siamo giunti a questa conclusione */
+void	ft_define(int argc, char **argv, t_ph *ph)
 {
+	ph->status = 1;
+	ph->num_philo = ft_atoi(argv[1]);
+	ph->to_die = ft_atoi(argv[2]);
+	ph->to_eat = ft_atoi(argv[3]);
+	ph->to_sleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		ph->n_toeat = ft_atoi(argv[5]);
+	else
+		ph->n_toeat = 0;
+}
+
+void	*ft_routine(void *arg)
+{
+	t_list	*list;
+
+	printf("Thread Initialized:\n");
 	return (0);
 }
 
-void	ft_create_thread(char *argv)
+int	ft_create_thread(t_ph *ph)
 {
-	int			num_philo;
 	int			i;
-	pthread_t	*philo;
+	pthread_t	*th;
 
-	num_philo = atoi(argv);
-	philo = malloc(sizeof(pthread_t) * num_philo);
-	i = 0;
-	while (i < num_philo)
-	{
-		pthread_create(&philo[i], NULL, ft_create, NULL);
-		i++;
-		printf("Thread number: %d\n", i);
-	}
+	th = malloc(sizeof(pthread_t) * ph->num_philo);
+	i = -1;
+	while (++i < ph->num_philo)
+		if (pthread_create(&th[i], NULL, ft_routine, &ph[i]) != 0)
+			return (printf("Error: Thread not created!!\n"));
+	i = -1;
+	while (++i < ph->num_philo)
+		if (pthread_join(th[i], NULL) != 0)
+			return (printf("Error: Thread not Joined!!\n"));
+	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	ft_create_thread(argv[1]);
-	return (0);
+	t_ph	ph;
+
+	if (ft_check_args(argc, argv) != 0)
+		return (1);
+	ft_define(argc, argv, &ph);
+	ft_create_thread(&ph);
 }
