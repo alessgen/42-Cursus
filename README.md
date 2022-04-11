@@ -1,6 +1,6 @@
 # 42-Cursus
 
-[![jaeskim's 42 stats](https://badge42.herokuapp.com/api/stats/agenoves)](https://github.com/JaeSeoKim/badge42)
+[![agenoves's 42 stats](https://badge42.vercel.app/api/v2/cl1unckr1001109lc4pk0jp1e/stats?cursusId=21&coalitionId=126)](https://github.com/JaeSeoKim/badge42)
 
 # Project
 
