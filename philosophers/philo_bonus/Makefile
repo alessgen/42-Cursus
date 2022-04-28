@@ -6,20 +6,19 @@
 #    By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 18:11:28 by agenoves          #+#    #+#              #
-#    Updated: 2022/04/26 18:11:28 by agenoves         ###   ########.fr        #
+#    Updated: 2022/04/28 16:30:46 by agenoves         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 						philo
+NAME = 						philo_bonus
 
 CC =						gcc
 CFLAGS = 					-Wall -Werror -Wextra
 RM =						rm -f
 
-FILES =						ft_philo \
-							ft_utils \
-							ft_start \
-							ft_utils2
+FILES =						ft_philo_bonus \
+							ft_start_bonus \
+							ft_utils_bonus
 
 SRCS_DIR = 				./
 SRCS = 					$(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

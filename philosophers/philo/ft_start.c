@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_start.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/26 18:10:47 by agenoves          #+#    #+#             */
+/*   Updated: 2022/04/28 16:11:51 by agenoves         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philo.h"
 
@@ -47,9 +58,9 @@ int	ft_init_philo(t_init *init, char **argv)
 	return (1);
 }
 
-int ft_check_for_chars(char *str)
+int	ft_check_for_chars(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -61,15 +72,15 @@ int ft_check_for_chars(char *str)
 	return (0);
 }
 
-int ft_check_input(int ac, char **av)
+int	ft_check_input(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (av[i] && i < ac)
 	{
 		if (ft_check_for_chars(av[i]))
-			return(printf("Error: check the input for wrong characters!\n"));
+			return (printf("Error: check the input for wrong characters!\n"));
 		i++;
 	}
 	if (ft_check_args(ac, av))

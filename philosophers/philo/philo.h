@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/26 18:11:21 by agenoves          #+#    #+#             */
+/*   Updated: 2022/04/28 12:05:12 by agenoves         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -24,8 +35,8 @@ typedef struct s_init
 	pthread_mutex_t	locker;
 	pthread_mutex_t	checkeat;
 	pthread_mutex_t	allate;
-	pthread_mutex_t death;
-	pthread_mutex_t meal;
+	pthread_mutex_t	death;
+	pthread_mutex_t	meal;
 }				t_init;
 
 /* Struct dei vari filosofi */
@@ -40,19 +51,20 @@ typedef struct s_philo
 }				t_philo;
 
 /* Utils */
-int			one_philo(t_philo *philo);
-int 		ft_check_input(int ac, char **av);
-int 		check_is_died(t_philo *philo);
+long long	ft_get_time(void);
+void		*one_philo(t_philo *philo);
+void		ft_printing(t_philo *philo, char *string);
+void		ft_smart_action(long long time, t_philo *philo);
+int			ft_check_input(int ac, char **av);
+int			check_is_died(t_philo *philo);
 int			check_all_eat(t_philo *philo);
 int			ft_atoi(const char *str);
 int			ft_check_args(int argc, char **argv);
-long long	ft_get_time(void);
-void		ft_printing(t_philo *philo, char *string);
-void 		ft_smart_action(long long time, t_philo *philo);
+int			ft_clean_thread(pthread_t *th, t_philo *philo);
 /* Start Initialization */
 t_philo		*ft_fill_philo(t_init *init);
-int			ft_init_philo(t_init *init, char **argv);
 void		check_if_dead(t_philo *philo);
 void		*ft_one_philo(t_philo *philo);
+int			ft_init_philo(t_init *init, char **argv);
 
 #endif

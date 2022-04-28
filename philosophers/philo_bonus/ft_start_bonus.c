@@ -1,34 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_start_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 18:11:37 by agenoves          #+#    #+#             */
-/*   Updated: 2022/04/26 18:11:40 by agenoves         ###   ########.fr       */
+/*   Created: 2022/04/28 16:07:47 by agenoves          #+#    #+#             */
+/*   Updated: 2022/04/28 16:52:43 by agenoves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
-void	ft_printing(t_philo *philo, char *string)
+t_philo	*ft_fill_philo(t_init *init)
 {
-	long long	current;
+	int		i;
+	t_philo	*philo;
 
-	current = ft_get_time() - philo->init_ph->timestart;
-	pthread_mutex_lock(&philo->init_ph->locker);
-	if (!check_is_died(philo))
-		printf("%lld %d %s\n", current, philo->ph_id, string);
-	pthread_mutex_unlock(&philo->init_ph->locker);
+	i = 0;
+	philo = malloc(sizeof(t_philo) * init->num_philo);
+	while (i < init->num_philo)
+	{
+		philo[i].ph_id = i + 1;
+		philo[i].last_meal = 0;
+		philo[i].n_meals = 0;
+		philo[i].fork = i;
+		philo[i].init_ph = init;
+		i++;
+	}
+	return (philo);
 }
 
-long long	ft_get_time(void)
+int	ft_init_philo(t_init *init, char **argv)
 {
-	struct timeval	tv;
-
-	gettimeofday(&tv, NULL);
-	return ((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000);
+	init->num_philo = ft_atoi(argv[1]);
+	init->to_die = ft_atoi(argv[2]);
+	init->to_eat = ft_atoi(argv[3]);
+	init->to_sleep = ft_atoi(argv[4]);
+	init->pid = malloc(sizeof(pid_t) * init->num_philo);
+	init->is_dead = 0;
+	init->alleat = 0;
+	if (argv[5])
+	{
+		init->n_toeat = ft_atoi(argv[5]);
+		if (init->n_toeat <= 0)
+			return (0);
+	}
+	else
+		init->n_toeat = -1;
+	return (1);
 }
 
 int	ft_check_args(int argc, char **argv)
@@ -57,26 +77,32 @@ and optional number_of_times_each_philosopher_must_eat\n"));
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_check_for_chars(char *str)
 {
-	int	result;
-	int	sign;
+	int	i;
 
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	sign = 1;
-	if (*str == '+' || *str == '-')
+	i = 0;
+	while (str[i])
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (str[i] < 48 || str[i] > 57)
+			return (1);
+		i++;
 	}
-	result = 0;
-	while (*str >= '0' && *str <= '9')
+	return (0);
+}
+
+int	ft_check_input(int ac, char **av)
+{
+	int	i;
+
+	i = 1;
+	while (av[i] && i < ac)
 	{
-		result = result * 10;
-		result = result + (*str - 48);
-		str++;
+		if (ft_check_for_chars(av[i]))
+			return (printf("Error: check the input for wrong characters!\n"));
+		i++;
 	}
-	return (result * sign);
+	if (ft_check_args(ac, av))
+		return (1);
+	return (0);
 }

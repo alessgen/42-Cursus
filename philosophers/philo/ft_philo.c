@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_philo.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agenoves <agenoves@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/26 18:02:38 by agenoves          #+#    #+#             */
+/*   Updated: 2022/04/28 12:08:02 by agenoves         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philo.h"
 
-void phi_eat(t_philo *philo)
+void	phi_eat(t_philo *philo)
 {
 	if (philo->rfork % 2 == 0)
 	{
@@ -25,6 +36,7 @@ void phi_eat(t_philo *philo)
 	pthread_mutex_unlock(&philo->init_ph->checkeat);
 	ft_smart_action(philo->init_ph->to_eat, philo);
 	philo->n_meals++;
+	printf("ID: %d \t Meals: %d\n", philo->ph_id, philo->n_meals);
 	pthread_mutex_unlock(&philo->init_ph->ph_forks[philo->lfork]);
 	pthread_mutex_unlock(&philo->init_ph->ph_forks[philo->rfork]);
 }
@@ -57,18 +69,15 @@ void	check_if_dead(t_philo *philo)
 void	*ft_routine(void *arg)
 {
 	t_philo	*philo;
+
 	philo = (t_philo *)arg;
 	if (philo->init_ph->num_philo == 1)
-	{
-		one_philo(philo);
-		return (NULL);
-	}
+		return (one_philo(philo));
 	while (!check_is_died(philo))
 	{
 		phi_eat(philo);
 		if (philo->n_meals == philo->init_ph->n_toeat)
 		{
-			printf("PHILO ID: %d\t Ha mangiato: %d\n", philo->ph_id, philo->n_meals);
 			pthread_mutex_lock(&philo->init_ph->allate);
 			philo->init_ph->alleat++;
 			if (philo->init_ph->alleat == philo->init_ph->num_philo)
@@ -80,7 +89,7 @@ void	*ft_routine(void *arg)
 		ft_smart_action(philo->init_ph->to_sleep, philo);
 		ft_printing(philo, "Is thinking");
 		if (philo->n_meals == philo->init_ph->n_toeat)
-			break;
+			break ;
 	}
 	return (NULL);
 }
@@ -105,14 +114,7 @@ int	ft_create_thread(t_philo *philo, t_init	*init)
 		i++;
 	}
 	check_if_dead(philo);
-	i = -1;
-	while (++i < philo->init_ph->num_philo)
-		if (pthread_join(th[i], NULL)!= 0)
-			return (printf("Error: Thread not Joined!!\n"));
-	i = -1;
-	while (++i < philo->init_ph->num_philo)
-		if(pthread_mutex_destroy(&init->ph_forks[i]))
-			return (printf("Error: Mutex not Destroyed!!\n"));
+	ft_clean_thread(th, philo);
 	free(th);
 	free(init->ph_forks);
 	free(philo);
@@ -127,7 +129,7 @@ int	main(int argc, char **argv)
 	if (ft_check_input(argc, argv) != 0)
 		return (1);
 	if (!ft_init_philo(&init, argv))
-		return 0;
+		return (0);
 	philo = ft_fill_philo(&init);
 	ft_create_thread(philo, &init);
 	return (0);
